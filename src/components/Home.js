@@ -4,15 +4,13 @@ import CryptoContext from './CryptoContext';
 function Home() {
 
     const { cryptoData } = useContext(CryptoContext);
-    console.log(cryptoData);
-
     const foramatDecimals = (number) => {
         return Number(number).toFixed(6);
     }
 
     return (
 
-    <table class="table">
+    <table className="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -26,7 +24,7 @@ function Home() {
         </thead>
         <tbody>
             {cryptoData.map(eachCrypto=>(
-                <tr>
+                <tr key={eachCrypto.symbol}>
                 <th scope="row">{eachCrypto.rank}</th>
                 <td>{eachCrypto.name}</td>
                 <td>{eachCrypto.symbol}</td>
